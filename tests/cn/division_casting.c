@@ -10,3 +10,8 @@ unsigned int division (unsigned int x, int y)
 {
     return x/y;
 }
+
+int main(void) {
+    int r = division(5, 2);
+    return 0;
+}

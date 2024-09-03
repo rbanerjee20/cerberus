@@ -42,8 +42,6 @@ SUCCESS=$(find cn -name '*.c' \
     ! -path '*/multifile/*' \
     ! -path '*/mutual_rec/*' \
     ! -path '*/tree16/*' \
-    ! -name "division_casting.c" \
-    ! -name "b_or.c" \
     ! -name "mod_with_constants.c" \
     ! -name "inconsistent.c" \
     ! -name "forloop_with_decl.c" \
@@ -83,7 +81,6 @@ SUCCESS=$(find cn -name '*.c' \
     ! -name "implies_precedence.c" \
     ! -name "bitwise_compl.c" \
     ! -name "fun_ptr_extern.c" \
-    ! -name "b_xor.c" \
     ! -name "mask_ptr.c" \
     ! -name "copy_alloc_id.c" \
     ! -name "has_alloc_id.c" \
@@ -97,10 +94,7 @@ SUCCESS=$(find cn -name '*.c' \
 SUCCESS+=("merging_arrays.error.c" "pointer_to_char_cast.error.c" "pointer_to_unsigned_int_cast.error.c")
 
 
-BUGGY="cn/division_casting.c \
-       cn/b_or.c \
-       cn/mod_with_constants.c \
-       cn/inconsistent.c \
+BUGGY="cn/mod_with_constants.c \
        cn/forloop_with_decl.c \
        cn/tree16/as_partial_map/tree16.c \
        cn/tree16/as_mutual_dt/tree16.c \
@@ -111,7 +105,6 @@ BUGGY="cn/division_casting.c \
        cn/left_shift_const.c \
        cn/bitwise_compl_precedence.c \
        cn/fun_ptr_three_opts.c \
-       cn/inconsistent2.c \
        cn/list_rev01.c \
        cn/block_type.c \
        cn/gnu_choose.c \
@@ -138,7 +131,6 @@ BUGGY="cn/division_casting.c \
        cn/implies_precedence.c \
        cn/bitwise_compl.c \
        cn/fun_ptr_extern.c \
-       cn/b_xor.c \
        cn/mask_ptr.c \
        cn/copy_alloc_id.c \
        cn/has_alloc_id.c \
@@ -155,6 +147,8 @@ SHOULD_FAIL=$(find cn -name '*.error.c' \
   ! -name "pointer_to_unsigned_int_cast.error.c" \
   ! -name "ptr_diff2.error.c" \
 )
+
+SHOULD_FAIL+=("cn/inconsistent.c cn/inconsistent2.c")
 
 FAILED=""
 
